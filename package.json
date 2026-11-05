@@ -8,7 +8,8 @@
   },
   "scripts": {
     "validate": "node scripts/validate.ts",
-    "test": "node --test tests/*.test.ts && npm run validate",
+    "test": "node --test tests/*.test.ts && npm run test:reproduce && npm run validate",
+    "test:reproduce": "python3 -m unittest discover -s tests -p '*_test.py' -v",
     "build": "npm run validate && node scripts/build.ts",
     "preview": "node scripts/serve.ts",
     "add-snapshot": "node scripts/add-snapshot.ts"

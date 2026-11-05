@@ -2,11 +2,11 @@
 
 Independent community measurements of [HyperQwen](https://github.com/syv-ai/HyperQwen) on one RTX 4090 and an Intel Core i9-14900KF. A static, accessible results dashboard, structured evidence, and an append-only snapshot format for future releases.
 
-**Initial study:** 149 measured requests, November 4–5, 2026 UTC, upstream revision [`6ab9bd0`](https://github.com/syv-ai/HyperQwen/tree/6ab9bd05cb84b538a6595d634f3e337ac8a80856). These are seven experiments on one revision, not seven release benchmarks. This repository contains results and presentation tooling; it does not configure or access an inference server.
+**Initial study:** 149 measured requests, November 4–5, 2026 UTC, upstream revision [`6ab9bd0`](https://github.com/syv-ai/HyperQwen/tree/6ab9bd05cb84b538a6595d634f3e337ac8a80856). These are seven experiments on one revision, not seven release benchmarks. This repository contains results, presentation tooling, and an optional generic installation kit. Building or viewing the site does not access an inference server.
 
 ## Preview
 
-Requires Node.js 22.18 or later. No dependencies or install step.
+Requires Node.js 22.18 or later and `tar` to build; Python 3 is also required for the reproduction-helper tests. No third-party site dependencies or install step.
 
 ```sh
 npm test
@@ -17,6 +17,14 @@ npm run preview
 Open `http://127.0.0.1:4173`. `PORT=4174 npm run preview` selects another port. Stop the server with Ctrl-C. Opening the HTML directly from disk will not load the JSON data; use the preview server.
 
 The dashboard has metric switching, exact-prefix comparisons, reasoning charts, an interactive conversation cache grid, completion/quality evidence, a paginated request ledger, per-request details, JSON/filtered CSV downloads, and snapshot comparison. Charts also have numeric tables or labels. No external fonts, analytics, third-party scripts, or runtime services are required.
+
+## Reproduce the serving setup
+
+Open `/install.html` in the preview for the step-by-step remote installation guide, copyable commands, checkpoints and a downloadable kit. The same source is available as an [agent-readable runbook](docs/install-remote.md). It covers generic SSH access, compatibility checks, a pinned native environment, explicit model revisions, persistent serving, 64k/150k profiles, API validation, timing and rollback. It contains no contributor-specific machine configuration or client integration.
+
+The kit includes `reproduce/prepare-native.py` (generates pinned native adapters), two environment profiles, and `reproduce/probe.py` (two synthetic streaming requests). The adapter supports only the documented upstream commit and refuses changed inputs. The probe records output and failures; it never grades correctness from API `stop`. Offline tests do not establish a successful fresh installation on a GPU. The kit is **not** the historical 149-request harness: exact replay still requires the original frozen fixtures and trajectories.
+
+The build renders the guide from Markdown, copies only allowlisted helper files and packs `dist/reproduction-kit.tar.gz`. It never runs installation commands or downloads models.
 
 ## What the initial measurements show
 
@@ -53,6 +61,6 @@ The workflow follows [GitHub's custom Pages workflow documentation](https://docs
 
 ## Evidence boundaries
 
-Only allowlisted numerical measurements, configuration metadata, task briefs, review summaries, and SHA-256 evidence fingerprints are included. Raw prompts, transcripts, personal filesystem paths, host addresses, authentication material and client-integration instructions are absent. Original evidence is retained separately by the contributor. Source fingerprints identify retained records but do not make them publicly downloadable. This is a results-only publication, not a full independently runnable inference benchmark.
+Only allowlisted numerical measurements, configuration metadata, task briefs, review summaries, and SHA-256 evidence fingerprints are included in the historical snapshots. Original raw prompts and transcripts, personal filesystem paths, private host addresses, authentication material and client-integration instructions are absent. Original evidence is retained separately by the contributor. Source fingerprints identify retained records but do not make them publicly downloadable. The generic installation kit adds a new synthetic smoke probe, not a full independently runnable reproduction of those historical benchmarks.
 
 Not an official HyperQwen benchmark or endorsement. HyperQwen belongs to its upstream contributors; model repositories are linked in each snapshot. No model weights or upstream code are redistributed here.

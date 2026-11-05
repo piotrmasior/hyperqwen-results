@@ -65,4 +65,6 @@ Each exported request points to an evidence ID and zero-based source row. Eviden
 
 The public repository omits original prompts/transcripts, machine logs, and the deployment harness. Exact inference reproduction from this repository alone is therefore not possible. It does support independently recomputing aggregates and inspecting every exported measurement. Model refs identify observed cache revisions, not full hashes of all locally prepared weight files. A custom-patched vLLM package version does not fully identify its binary/source state.
 
+The [remote installation runbook](install-remote.md) and bundled helpers reproduce the reference serving profiles with explicitly pinned model refs. Their two-request synthetic probe checks API operation and timing fields, not the historical workloads. Source inspection and offline helper tests do not establish a fresh GPU installation test.
+
 For stronger future reproduction, attach separately reviewed synthetic fixtures and serving build fingerprints. Do not label them matched until their full rendered prompt fingerprints, settings and method actually match.

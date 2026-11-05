@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="A step-by-step remote HyperQwen installation runbook with pinned model revisions, serving profiles, verification checkpoints and a synthetic API probe."
+    />
+    <meta name="theme-color" content="#101e31" />
+    <title>Install on your server / HyperQwen Field Notes</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./guide.css" />
+    <script type="module" src="./guide.js"></script>
+  </head>
+  <body class="install-page">
+    <a class="skip" href="#steps">Skip to installation steps</a>
+    <header class="topbar">
+      <a class="brand" href="./"
+        ><img src="./favicon.svg" alt="" width="28" height="28" />HyperQwen
+        <span>/ FIELD NOTES</span></a
+      >
+      <nav aria-label="Main">
+        <a href="./">Results</a
+        ><a href="./install.html" aria-current="page">Install</a
+        ><a href="./docs/methodology.md">Method</a>
+      </nav>
+    </header>
+    <main>
+      <section class="guide-hero wrap">
+        <div class="eyebrow">
+          <span class="status-dot"></span> REPRODUCTION GUIDE / 001
+        </div>
+        <div class="guide-hero-grid">
+          <div>
+            <h1>Your server.<br /><em>Same starting point.</em></h1>
+            <p class="guide-lead">
+              From SSH access to a measured first response. A portable runbook
+              for people and agents, with checks at every stage.
+            </p>
+          </div>
+          <aside class="kit-card" aria-labelledby="kit-title">
+            <span class="eyebrow">TAKE THE RECIPE WITH YOU</span>
+            <h2 id="kit-title">One small kit.<br />No model weights.</h2>
+            <p>
+              Native preparation helper · two serving profiles · synthetic probe
+              · full Markdown runbook
+            </p>
+            <a class="button primary" href="./reproduction-kit.tar.gz" download
+              >Download the kit <span>↓</span></a
+            ><a class="text-link" href="./docs/install-remote.md" download
+              >Agent-readable runbook ↓</a
+            >
+          </aside>
+        </div>
+        <div class="guide-facts">
+          <span><b>PLATFORM</b>Ubuntu · NVIDIA CUDA</span
+          ><span
+            ><b>UPSTREAM PIN</b
+            ><a
+              href="https://github.com/syv-ai/HyperQwen/tree/6ab9bd05cb84b538a6595d634f3e337ac8a80856"
+              >6ab9bd0 ↗</a
+            ></span
+          ><span><b>VALIDATION</b>Source checks + offline tests</span>
+        </div>
+        <div class="run-map" aria-label="Installation sequence">
+          <span><b>01–03</b> Inspect & prepare</span><i aria-hidden="true">→</i
+          ><span><b>04–08</b> Pin & build</span><i aria-hidden="true">→</i
+          ><span><b>09–12</b> Serve & verify</span><i aria-hidden="true">→</i
+          ><span><b>13–14</b> Record & recover</span>
+        </div>
+      </section>
+      <div class="guide-layout wrap">
+        <aside class="guide-nav">
+          <details open>
+            <summary>ON THIS PAGE</summary>
+            <nav aria-label="Installation steps">
+              <ol>
+                {{TOC}}
+              </ol>
+            </nav>
+          </details>
+          <a class="text-link" href="./docs/install-remote.md"
+            >Read as Markdown ↗</a
+          >
+        </aside>
+        <article id="steps" class="guide-content">
+          <div class="guide-boundary">
+            <span class="eyebrow">WHAT THIS REPRODUCES</span>{{INTRO}}
+          </div>
+          {{BODY}}
+        </article>
+      </div>
+    </main>
+    <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
+    <footer class="wrap">
+      <div>
+        <strong>HyperQwen / Field Notes</strong>
+        <p>Independent evidence. Reproducible starting points.</p>
+      </div>
+      <div>
+        <a href="./">Explore the results ↗</a
+        ><a href="./docs/adding-results.md">Add a snapshot ↗</a
+        ><a href="https://github.com/syv-ai/HyperQwen">Upstream project ↗</a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -11,6 +11,7 @@
     <title>HyperQwen / Field Notes</title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./guide.css" />
     <script type="module" src="./app.js"></script>
   </head>
   <body>
@@ -22,7 +23,7 @@
       >
       <nav aria-label="Main">
         <a href="#performance">Performance</a><a href="#quality">Quality</a
-        ><a href="#method">Method</a
+        ><a href="#method">Method</a><a href="./install.html">Install</a
         ><a href="#measurements">Data <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
@@ -464,6 +465,22 @@
           </div>
         </div>
       </section>
+      <section class="wrap" aria-labelledby="install-title">
+        <div class="install-cta">
+          <div>
+            <span class="eyebrow">REPRODUCE THE SETUP</span>
+            <h3 id="install-title">Bring your own server.</h3>
+            <p>
+              A general remote installation guide with pinned revisions, serving
+              profiles, checkpoints and a synthetic API probe. Built for people
+              and agents.
+            </p>
+          </div>
+          <a class="button primary" href="./install.html"
+            >Open the install guide ↗</a
+          >
+        </div>
+      </section>
       <section id="measurements" class="section wrap">
         <div class="section-heading">
           <div>
@@ -514,6 +531,7 @@
       </div>
       <div>
         <a href="https://github.com/syv-ai/HyperQwen">HyperQwen ↗</a
+        ><a href="./install.html">Install on your server ↗</a
         ><a href="./docs/adding-results.md">Add a snapshot ↗</a
         ><span>No analytics · Static site · UTC dates</span>
       </div>

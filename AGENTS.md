@@ -1,6 +1,7 @@
 # Results repository guidance
 
 - This repository contains curated results and presentation code. Do not copy deployment credentials, host addresses, raw private transcripts, personal filesystem paths or client-integration instructions here.
+- General installation documentation and portable reproduction helpers belong in `docs/install-remote.md` and `reproduce/`. Use placeholders and loopback URLs; do not install on a real server as part of site validation. The synthetic smoke probe is not the historical benchmark harness.
 - Preserve published snapshots. Add new measurement IDs and checksums; never overwrite earlier measurements to reflect a new release.
 - Keep API termination, output-cap exhaustion, semantic completion and correctness distinct. Do not infer a quality pass from `stop`.
 - Separate loaded-model cold-input prefill, cache reuse, decode speed and client latency. Keep setup failures and limitations in the report.
