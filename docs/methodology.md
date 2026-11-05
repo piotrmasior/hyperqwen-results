@@ -53,6 +53,8 @@ The ordinary requests use temperature 0 and seed 42. Matrix default thinking map
 
 Quality judgments are manual and non-blinded, against supplied scenario invariants. No universal accuracy score, statistical significance, population success rate, or p95 is estimated. Most cells have one observation. Selected matrix settings have three cold repetitions per task; those are timing repeats of the same input, not independent quality samples. Different output lengths make total-response ratios task costs, not fixed-output throughput comparisons.
 
+Here, “manual review” describes source/answer inspection rather than executable evaluation. The retained notes do not establish independent human validation. Treat the findings as qualitative review observations, not a certified correctness assessment.
+
 The long-context study sampled whole-GPU memory every second, with a maximum of 23,836 MiB out of 24,564 MiB. The matrix sampled every five seconds: 23,832 MiB during measured inference, 24,046 including startup/restoration. Conversation samples peaked at 23,832 MiB and 76°C. These are sampled maxima, not continuous peak-memory profiles. They do not establish safe concurrency or reserve headroom for other workloads.
 
 Preparation/startup failures are described in the snapshot. They are not counted as completed inference requests and are not silently presented as fault-free setup. Zero measured preemptions do not imply no setup faults.
