@@ -2,6 +2,8 @@
 
 Independent community measurements of [HyperQwen](https://github.com/syv-ai/HyperQwen) on one RTX 4090 and an Intel Core i9-14900KF. A static, accessible results dashboard, structured evidence, and an append-only snapshot format for future releases.
 
+[Results dashboard](https://piotrmasior.github.io/hyperqwen-results/) · [Remote installation guide](https://piotrmasior.github.io/hyperqwen-results/install.html) · [Validation runs](https://github.com/piotrmasior/hyperqwen-results/actions/workflows/check.yml)
+
 **Initial study:** 149 measured requests, November 4–5, 2026 UTC, upstream revision [`6ab9bd0`](https://github.com/syv-ai/HyperQwen/tree/6ab9bd05cb84b538a6595d634f3e337ac8a80856). These are seven experiments on one revision, not seven release benchmarks. This repository contains results, presentation tooling, and an optional generic installation kit. Building or viewing the site does not access an inference server.
 
 ## Preview
@@ -48,12 +50,12 @@ npm run build
 
 Snapshots load automatically. The initial study's editorial sections remain tied to its ID; another snapshot shows its own measurements, environment and matched comparison without inheriting those conclusions. The comparison requires matching prompt fingerprints, serving profile, cache counts, request settings and method. Hardware/model/method differences withhold deltas; runtime differences are explicitly flagged.
 
-## Publish later
+## Publishing and updates
 
-The repository is prepared for a normal GitHub project Pages site. Nothing needs publishing to preview locally. When ready:
+This repository publishes a GitHub project Pages site. Nothing needs publishing to preview locally. To publish an update:
 
-1. Create the intended GitHub repository and push this repository.
-2. Under **Settings → Pages → Build and deployment**, select **GitHub Actions**.
+1. Push the reviewed results-site changes and check the validation workflow.
+2. Use **GitHub Actions** as the Pages source under **Settings → Pages → Build and deployment**. This is already configured for the community repository; forks need to configure their own Pages source.
 3. Run **Publish results to GitHub Pages** manually, or publish a GitHub release from a tested commit. A source push only runs checks; it does not deploy.
 4. The workflow builds `dist/`, uploads it, and deploys to Pages. Relative assets support a project URL such as `/<repository>/`.
 

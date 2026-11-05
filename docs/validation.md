@@ -12,7 +12,7 @@ Checked 2026-11-05 with Node.js 22.20.0 and Chromium through Playwright CLI 0.1.
 
 One initial browser automation selector (`getByLabel` with an exact match) timed out before exercising the ledger. Repeating with the rendered combobox role/name completed the remaining checks. No inference benchmarks were rerun for this presentation project.
 
-The GitHub Pages workflow is prepared and based on official Actions documentation, but has not been dispatched. No public repository or hosted site was created during this preparation.
+At this initial preparation stage, the GitHub Pages workflow had not been dispatched and no public repository or hosted site had been created. Publication is recorded separately by the repository's [GitHub Pages workflow runs](https://github.com/piotrmasior/hyperqwen-results/actions/workflows/pages.yml).
 
 ## Remote installation guide addition
 
