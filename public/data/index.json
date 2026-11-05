@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "releases": [
+    {
+      "id": "2026-11-05-6ab9bd0",
+      "label": "Initial study · 6ab9bd0",
+      "file": "releases/2026-11-05-6ab9bd0.json",
+      "sha256": "2a1e5d80c16b2909c0a0a1993d88bc6041f4e26f02c012f827ec1a58c9c7cf75"
+    }
+  ]
+}
