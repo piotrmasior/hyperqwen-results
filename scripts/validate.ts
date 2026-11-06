@@ -2,7 +2,9 @@ import { readFileSync, readdirSync } from "node:fs";
 import { resolve, join } from "node:path";
 import { createHash } from "node:crypto";
 import { validateSnapshot } from "./validation.ts";
+import { validateInvestigationFiles } from "./validate-investigations.ts";
 const root = resolve(import.meta.dirname, "../public/data");
+validateInvestigationFiles(resolve(import.meta.dirname, ".."));
 const index = JSON.parse(readFileSync(join(root, "index.json"), "utf8"));
 if (index.schemaVersion !== 1 || !index.releases.length)
   throw new Error("Invalid data index");

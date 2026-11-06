@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="HyperQwen quality investigation: four supervised packages passed, fresh automatic runs failed, and attention precision changed EOS probability without solving correctness." />
+  <meta name="theme-color" content="#101e31" />
+  <title>Quality investigation / HyperQwen Field Notes</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./style.css" /><link rel="stylesheet" href="./investigation.css" />
+  <script type="module" src="./investigation.js"></script>
+</head>
+<body class="investigation-page">
+  <a class="skip" href="#main">Skip to findings</a>
+  <header class="topbar">
+    <a class="brand" href="./"><img src="./favicon.svg" alt="" width="28" height="28" />HyperQwen <span>/ FIELD NOTES</span></a>
+    <nav aria-label="Main"><a href="./">Performance</a><a href="./investigation.html" aria-current="page">Investigation</a><a href="#evidence">Evidence</a><a href="./install.html">Install</a></nav>
+  </header>
+  <main id="main">
+    <section class="wrap investigation-hero">
+      <span class="eyebrow">STUDY 002 / NOVEMBER 5–6, 2026 UTC / SAME UPSTREAM REVISION</span>
+      <h1>Better artifacts.<br /><em>No automatic fix.</em></h1>
+      <p class="intro">Four engineering tasks. Core-code controls, configuration changes, and executed tests. Small repairs with extensive independent supervision produced passing packages. Fresh unattended generation remains unresolved.</p>
+      <div class="study-meta"><span>RTX 4090 · 450 W power limit</span><span>120k target input · 30k output allowance</span><a href="https://github.com/syv-ai/HyperQwen/tree/6ab9bd05cb84b538a6595d634f3e337ac8a80856">HyperQwen 6ab9bd0 ↗</a></div>
+      <div class="outcome-grid">
+        <article class="outcome success"><span class="eyebrow">ADAPTIVE / SUPERVISED</span><strong>4<span>/4</span></strong><h2>Reviewed packages pass</h2><p>Local-model edits, substantial external review, independent tests and diagnostic feedback. Original requirements retained.</p></article>
+        <article class="outcome"><span class="eyebrow">FRESH / BOUNDED AUTOMATION</span><strong>0<span>/4</span></strong><h2>Complete, correct packages</h2><p>Seed45: all four implementations compile. All fail before a complete package; independent checks also reproduce defects.</p></article>
+        <article class="outcome"><span class="eyebrow">PRECISION / FULL CONTEXT</span><strong>0<span>/4</span></strong><h2>Complete, correct packages</h2><p>BF16 attention plus capacity changes. All four original final requests still stop prematurely with unused allowance.</p></article>
+      </div>
+      <p class="scope-callout">These are different evaluation tracks, not a controlled before/after success-rate comparison. The earlier “1/3” meant complete-looking migration answers; it was never a correctness score.</p>
+      <div class="hero-actions"><a class="button primary" href="#precision">Inspect the numerical finding ↓</a><a class="text-link" href="./docs/quality-investigation.md">Read the full methods ↗</a></div>
+    </section>
+
+    <section class="section tinted" id="packages"><div class="wrap">
+      <div class="section-heading"><div><span class="eyebrow">01 / WHAT ACTUALLY PASSED</span><h2>Review changed the outcome.</h2></div><p>Exact archived artifacts were re-executed on November 6. The model authored candidate implementations and edits; a separate supervising agent supplied checks and review.</p></div>
+      <div class="panel"><div id="checks-table" class="table-scroll" aria-label="Checks by scenario"></div><p class="chart-note">100 independent development checks · 156 generated tests · 12 reused regression checks · 9 SQL controls. These categories must not be combined into a count of independent tests.</p></div>
+      <div class="two-col investigation-copy">
+        <div><h3>The first held-out result stays 11/12.</h3><p>Migration initially failed a calendar case. Repairing it brought the reused suite to 12/12; that is regression evidence. All 24 Node suites and the incident SQL controls passed in the final archived replay.</p><p>Repairs addressed ownership fencing, stable payment identity, expiry boundaries, unknown-money holds, refunds, backfill faults and contiguous offsets. Runbooks needed separate review.</p></div>
+        <div><h3>Acceptance rules stayed intact.</h3><p>Tests that removed assertions or normalized a defect were rejected. No manually corrected candidate implementation is credited to the model. Failed attempts remain in the cost ledger.</p><p>Limits remain: migration can hold retired-owner rows without a general closure API; incident unknowns need authoritative evidence; ingestion still needs verified identities and real broker integration. This is not production certification.</p></div>
+      </div>
+    </div></section>
+
+    <section class="section wrap" id="fresh">
+      <div class="section-heading"><div><span class="eyebrow">02 / THE FRESH-RUN CHECK</span><h2>Compilation was not enough.</h2></div><p>A prospectively fixed workflow allowed one initial generation and up to two replacements per artifact. No successful previous answer or independent test source entered its prompts.</p></div>
+      <div class="workflow" aria-label="Seed45 workflow"><span>~120k source selection</span><b>→</b><span>Schema</span><b>→</b><span>Implementation</span><b>→</b><span class="failed-stage">Tests: all four blocked</span><b>→</b><span>Runbook: not reached</span></div>
+      <div class="panel"><div id="fresh-table" class="table-scroll"></div><p class="chart-note">31 calls · 416,489 output tokens · 55.56 minutes of request wall time. All 31 responses reported normal <code>stop</code>, including unfinished files. This workflow used source selection; it was not a 120k-input call at every stage.</p></div>
+      <div class="finding-grid">
+        <article><span class="eyebrow">PAYMENT</span><h3>A thousandfold expiry error.</h3><p>Milliseconds were supplied as SQL seconds. A 26-hour expired dispatch called the provider. Distinct opaque identifiers collided under colon concatenation; migration of populated legacy rows failed.</p></article>
+        <article><span class="eyebrow">INCIDENT</span><h3>Compiling code, broken takeover.</h3><p>Default PostgreSQL BIGINT string decoding broke an expired claim takeover. A crash before storing the provider result reported zero unknown exposure instead of 1,800 cents.</p></article>
+        <article><span class="eyebrow">MIGRATION</span><h3>Ownership and ambiguity lost.</h3><p>A retired-region request sent a payment after cutover. A lost response after simulated acceptance became definite failure instead of an ambiguous result.</p></article>
+        <article><span class="eyebrow">INGESTION</span><h3>A test can endorse the bug.</h3><p>Repeated recovery credited 500 cents instead of 250. Generated tests expected that wrong amount and attempted to replace faulty frontier SQL. They were rejected as acceptance evidence.</p></article>
+      </div>
+      <details class="panel"><summary>Client limitations and earlier seeds</summary><p>Seeds43/44 each produced zero complete packages, partly because the strict client rejected complete Markdown wrappers and could not repair missing files. Those are not eight fully assessed semantic failures. Seed45 accepted complete wrappers and checked prerequisites immediately.</p><p>Seed45 still restricted repairs to the current artifact. A test-stage failure could not repair an earlier schema or implementation. Ingestion's final test setup failed and canceled 24 tests; those are not 24 failed behavioral assertions. No runbook was generated. Future trials should allow dependency-aware repairs while preserving independent assertions and a frozen retry bound.</p></details>
+    </section>
+
+    <section class="section dark" id="precision"><div class="wrap">
+      <div class="section-heading"><div><span class="eyebrow">03 / NUMERICAL CONTROL</span><h2>One EOS gap moved.<br />Quality did not follow.</h2></div><p>Restore the q/k/v/o projections in 16 full-attention layers from official BF16. Verify 64 restored tensors and 1,830 unchanged tensors bit for bit.</p></div>
+      <div class="panel precision-panel">
+        <div class="panel-toolbar"><h3>EOS probability at a fixed prefix</h3><div class="segmented" role="group" aria-label="Prefix probe scenario"><button data-probe="02-incident" aria-pressed="true">Incident</button><button data-probe="01-code-review" aria-pressed="false">Payment</button></div></div>
+        <p id="probe-context" class="small"></p><div id="probe-chart" aria-live="polite"></div>
+        <p class="chart-note">Teacher-forced recomputation on identical token hashes and runtime: no MTP, eager, BF16 KV, FP32 state. Only the checkpoint changed. This is a next-token probability, not a quality score or a replay of original incremental-decode logits.</p>
+        <details><summary>Both probes, with exact values</summary><div id="probe-table" class="table-scroll"></div></details>
+      </div>
+      <div class="two-col investigation-copy"><div><h3>A narrow, reproducible signal.</h3><p>Incident EOS fell from 56.0% to 13.3%, switching the top token to a continuation. Payment stayed near 24.5%. The incident result met the predeclared follow-up threshold; it does not establish a general fix.</p></div><div><h3>Extra precision costs memory.</h3><p>Tensor storage grew by 2.49 GB (2.32 GiB). Three 150k startup attempts failed on memory. A fourth started with eager execution, batch 512, one sequence, 96% GPU allocation and an explicit 5.8 GB KV cache.</p></div></div>
+      <h3 class="subheading">Full 150k capacity, four original final requests</h3>
+      <div class="table-scroll" id="full-table"></div>
+      <p class="chart-note">~120k input · 30k allowance · low reasoning · temperature 1 · seed42 · MTP3 · FP8 KV · FP16 state. Zero cached tokens or preemptions. Every response ended with normal EOS. Runtime and weights both changed, so this is not an isolated weights-only generation comparison.</p>
+      <p class="quality-note">The same three incident behavioral counterexamples still failed on verbatim extracted functions: each made one forbidden extra provider call. The other three packages failed source/completion review. Full-prefix probes in the combined runtime still gave 59.09% incident EOS; do not generalize the short-prefix 13.3% result to long generation.</p>
+    </div></section>
+
+    <section class="section wrap" id="controls">
+      <div class="section-heading"><div><span class="eyebrow">04 / OTHER PATHS TESTED</span><h2>No single switch solved it.</h2></div><p>Normal final EOS and MTP remain enabled in the restored fast profile. No experimental configuration was promoted.</p></div>
+      <div class="finding-grid">
+        <article><span class="eyebrow">REASONING-BOUNDARY GUARD</span><h3>An answer, still incorrect.</h3><p>On the same 25,894 input tokens, an opt-in guard changed 10,453 tokens with no answer into 20,603 tokens with an answer. Semantic checks still failed. Five unit tests passed; normal final EOS was preserved. One matched pair is not a reliability estimate.</p></article>
+        <article><span class="eyebrow">MODEL / CACHE / STATE</span><h3>No all-four correctness fix.</h3><p>Base weights, FP32 state, KV variants, MTP removal and shorter thinking budgets did not establish complete, correct engineering outputs. Head/embedding restoration and dense reconstruction did not explain the incident EOS gap.</p></article>
+        <article><span class="eyebrow">UPSTREAM GSM8K CHECK</span><h3>191 / 200 · 95.5%</h3><p>The unmodified upstream math quality protocol passed at this level: thinking off, greedy, 768-token cap, 32 client threads. This is a different task and execution protocol from long engineering generation.</p></article>
+        <article><span class="eyebrow">16,282 IS NOT A HARD LIMIT</span><h3>Allowance remains unused.</h3><p>Outputs exceeded 20k in other runs. Final EOS truncations occurred at varying lengths. Ignoring final EOS exposed control markers and was not adopted; increasing the allowance did not solve semantic defects.</p></article>
+      </div>
+      <div class="scope-callout"><strong>What to test next:</strong> dependency-aware bounded repair with frozen independent checks; new held-out schedules after development; matched runtime controls for numerical hypotheses; separate runbook validation. These are proposed experiments, not measured improvements.</div>
+    </section>
+
+    <section class="section tinted" id="evidence"><div class="wrap">
+      <div class="section-heading"><div><span class="eyebrow">05 / COST, PROVENANCE & REPRODUCTION</span><h2>Keep the unsuccessful runs.</h2></div><p>246 unique measured generations, including rejected outputs. 3,021,468 output tokens and 8.10 hours of summed model-request wall time.</p></div>
+      <p class="scope-callout">This is not total elapsed investigation time or monetary cost. Startup, CPU checks, teacher-forced probes, GSM transport, external supervision and zero-token failures without final metrics are additional. Copied measurement records were deduplicated.</p>
+      <div class="panel"><div class="panel-toolbar"><h3>Measured generation cost by experiment</h3><label>Sort by <select id="cost-sort"><option value="wallSeconds">Request wall time</option><option value="outputTokens">Output tokens</option><option value="calls">Calls</option></select></label></div><div id="cost-table" class="table-scroll"></div></div>
+      <div class="hero-actions"><a class="button primary" href="./data/investigations/2026-11-06-quality-6ab9bd0.json" download>Download investigation JSON ↓</a><button class="button" id="cost-csv">Download 246-request CSV ↓</button><a class="text-link" href="./docs/quality-investigation.md">Full methods & limitations ↗</a></div>
+      <p id="data-status" role="status" class="small">Loading checksummed investigation data…</p>
+      <details class="panel"><summary>Hardware, software and evidence fingerprints</summary><div id="investigation-environment"></div><div id="source-hashes" class="table-scroll"></div><p>These fingerprints identify contributor-retained evidence. Raw prompts, full candidate packages and the complete experimental harness are not published here; hashes are not download links. The generic installation kit reproduces a serving setup and synthetic smoke test, not the historical quality investigation.</p></details>
+      <div class="install-cta"><div><h3>Start with the documented serving setup.</h3><p>The general remote installation guide remains available. The investigation methods explain how to design controlled quality checks on your own tasks.</p></div><a class="button primary" href="./install.html">Installation guide ↗</a></div>
+    </div></section>
+  </main>
+  <footer class="wrap"><div><strong>HyperQwen / Field Notes</strong><p>Independent community evidence. Same revision, deeper investigation.</p></div><div><a href="./">Initial performance study ↗</a><a href="https://github.com/piotrmasior/hyperqwen-results">Results repository ↗</a><span>No analytics · Static site · UTC dates</span></div></footer>
+  <noscript><p class="noscript">Charts and tables require JavaScript. <a href="./docs/quality-investigation.md">Read the complete report</a> or <a href="./data/investigations/2026-11-06-quality-6ab9bd0.json">download the data</a>.</p></noscript>
+</body>
+</html>

@@ -4,6 +4,8 @@ Independent community measurements of [HyperQwen](https://github.com/syv-ai/Hype
 
 [Results dashboard](https://piotrmasior.github.io/hyperqwen-results/) · [Remote installation guide](https://piotrmasior.github.io/hyperqwen-results/install.html) · [Validation runs](https://github.com/piotrmasior/hyperqwen-results/actions/workflows/check.yml)
 
+**Quality follow-up, November 5–6:** [Interactive investigation](https://piotrmasior.github.io/hyperqwen-results/investigation.html) · [Full report](docs/quality-investigation.md). Four extensively supervised, adaptively repaired packages passed reviewed requirements and checks. A fresh bounded automatic workflow and the BF16-attention full-context trial each produced **0/4 complete, correct packages**. No reliable unattended configuration fix was established. The first held-out score remains **11/12**; subsequent repairs are regression evidence. The separate checksummed investigation dataset retains 246 measured generations, including rejected outputs: 3,021,468 output tokens and 8.10 hours of summed request wall time, excluding supervision and other costs. This used the same upstream revision, not a new release.
+
 **Initial study:** 149 measured requests, November 4–5, 2026 UTC, upstream revision [`6ab9bd0`](https://github.com/syv-ai/HyperQwen/tree/6ab9bd05cb84b538a6595d634f3e337ac8a80856). These are seven experiments on one revision, not seven release benchmarks. This repository contains results, presentation tooling, and an optional generic installation kit. Building or viewing the site does not access an inference server.
 
 ## Preview
@@ -36,7 +38,7 @@ The build renders the guide from Markdown, copies only allowlisted helper files 
 - Changing conversations reused cache in 22 of 40 follow-ups. The other 18 had zero cached tokens despite shared prefixes.
 - The original 16,282-token incomplete answer ended on a generated EOS, not a configured 16k cap. Sampling and disabling MTP did not reliably solve it. All four final conversation packages had correctness problems.
 
-These findings are scoped to synthetic inputs and the measured configurations. Generated code was not executed. Read [methodology](docs/methodology.md), [the initial report](docs/initial-study.md), and [data definitions](docs/data-format.md) before interpreting differences.
+These initial findings are scoped to synthetic inputs and the measured configurations. Generated code was not executed in the initial study; the separate [quality investigation](docs/quality-investigation.md) adds executable checks. Read [methodology](docs/methodology.md), [the initial report](docs/initial-study.md), and [data definitions](docs/data-format.md) before interpreting differences.
 
 ## Update over time
 

@@ -1,5 +1,7 @@
 # Add a measured release
 
+The November 6 quality investigation uses its own append-only index at `public/data/investigations/index.json`, with SHA-256 checksums and separate validation. Its curated records include grouped and per-request costs, reviewed-package hashes, first held-out results, fresh-run outcomes, precision probes and full-context timings. It is not inserted into the release-comparison selector because its adaptive and numerical-control protocols are different from the initial performance study. Add future investigations with new IDs, preserve the original data, and identify any narrative's study explicitly.
+
 1. Record the full upstream commit and release tag if present; record hardware, model/quantization refs, installed runtime versions and effective serving profiles. Keep the original measurements immutable.
 2. Use the same frozen fixtures and method for a matched comparison. Record exact rendered input-token hashes when possible. Retain cold/exact-repeat/follow-up labels and actual cached tokens. Include failed/capped outcomes, not only successful answers.
 3. Prepare a curated snapshot matching `docs/data-format.md`. Use a new ID such as `YYYY-MM-DD-<short-commit>`. Export only measured numerical fields, public configuration metadata and reviewed findings. Use null for unavailable measurements. Remove raw transcripts, machine addresses, account paths, secrets and unrelated integration details before import.

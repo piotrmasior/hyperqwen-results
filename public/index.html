@@ -12,6 +12,7 @@
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./guide.css" />
+    <link rel="stylesheet" href="./investigation.css" />
     <script type="module" src="./app.js"></script>
   </head>
   <body>
@@ -22,13 +23,17 @@
         <span>/ FIELD NOTES</span></a
       >
       <nav aria-label="Main">
-        <a href="#performance">Performance</a><a href="#quality">Quality</a
+        <a href="#performance">Performance</a><a href="./investigation.html">Investigation</a><a href="#quality">Quality</a
         ><a href="#method">Method</a><a href="./install.html">Install</a
         ><a href="#measurements">Data <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
     <main id="main">
       <section class="hero wrap">
+        <a class="latest-study" href="./investigation.html">
+          <strong>New · November 6: quality investigation →</strong>
+          <span>4/4 supervised packages pass; fresh automation and BF16 attention each finish at 0/4. Executed checks, numerical controls and 246 measured generations.</span>
+        </a>
         <div class="eyebrow">
           <span class="status-dot"></span> INDEPENDENT COMMUNITY STUDY
           <span class="muted">/ 001</span>
@@ -321,6 +326,7 @@
       </section>
       <section id="quality" class="section dark">
         <div class="wrap">
+          <p class="historical-note">Initial study · November 4–5. The “1/3” below measures complete-looking answers, not correctness. <a href="./investigation.html">The follow-up investigation adds executed tests and independent review →</a></p>
           <div class="section-heading">
             <div>
               <span class="eyebrow">04 / COMPLETION ≠ CORRECTNESS</span>
@@ -485,7 +491,7 @@
         <div class="section-heading">
           <div>
             <span class="eyebrow">07 / OPEN THE NUMBERS</span>
-            <h2>Every measured request.</h2>
+            <h2>Every initial-study request.</h2>
           </div>
           <p>
             Filter the ledger, inspect a request, or download the selected rows.

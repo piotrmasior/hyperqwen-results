@@ -1,0 +1,2537 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-11-06-quality-6ab9bd0",
+  "label": "Quality investigation \u00b7 same upstream revision",
+  "measuredFrom": "2026-11-05",
+  "measuredThrough": "2026-11-06",
+  "upstream": {
+    "name": "HyperQwen",
+    "url": "https://github.com/syv-ai/HyperQwen",
+    "revision": "6ab9bd05cb84b538a6595d634f3e337ac8a80856",
+    "releaseTag": null
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpuCount": 1,
+    "vramMiB": 24564,
+    "cpu": "Intel Core i9-14900KF",
+    "logicalCpus": 32,
+    "ramBytes": 197866139648,
+    "powerLimitWatts": 450
+  },
+  "software": {
+    "os": "Ubuntu 26.04.1 LTS",
+    "kernel": "7.0.0-42-generic",
+    "nvidiaDriver": "595.91.07",
+    "python": "3.14.4",
+    "torch": "2.13.0+cu130",
+    "vllm": "0.32.0 (custom patched build)",
+    "flashinfer": "0.7.0.post1",
+    "transformers": "5.19.0"
+  },
+  "model": {
+    "name": "Qwen3.8-27B",
+    "quantization": "W4A16 AutoRound, prepared fast variant",
+    "fastRepository": {
+      "repository": "syvai/qwen3.8-27b-3090-fast-variant",
+      "ref": "main",
+      "revision": "124c14e7e8c7d2f5402933b9af368e772a9fcf0c"
+    },
+    "provenanceLimit": "Cache revision refs are recorded; prepared local weights were not fully content-hashed."
+  },
+  "scope": "Adaptive supervised artifacts, prospective fresh workflow and numerical controls. Not a new upstream release or an autonomous quality fix.",
+  "outcomes": [
+    {
+      "id": "adaptive",
+      "passed": 4,
+      "total": 4,
+      "scope": "Extensively supervised, adaptively repaired packages; original requirements retained."
+    },
+    {
+      "id": "fresh45",
+      "passed": 0,
+      "total": 4,
+      "scope": "Fresh seed45; bounded mechanical feedback; no previous successful answer or independent tests in prompts."
+    },
+    {
+      "id": "attention-full",
+      "passed": 0,
+      "total": 4,
+      "scope": "Frozen original final prompts; BF16 attention plus capacity/runtime changes."
+    }
+  ],
+  "reviewedPackages": [
+    {
+      "id": "01-code-review",
+      "label": "Payment repair",
+      "development": 18,
+      "generated": 31,
+      "regression": 3,
+      "reportSQL": 0,
+      "firstHeldOutPassed": 3,
+      "firstHeldOutTotal": 3,
+      "files": {
+        "schema.sql": "ff8df7158d43964b8b057e666bb71837a023842f2a0da8bb2b8cfb1964621eb7",
+        "implementation.ts": "3d2b7563113466f84a6bbeb3f8fdcb0a2fc77e20e784c2e9364c386c12d4bee9",
+        "acceptance.test.ts": "ec99f806a236fea997ec36d10d4736f5bb45dacf7ff34036973d3adc886a2d49",
+        "runbook.md": "2383c7e2ff8ab22d0d90c585aee767a97ff60aeb74c7af646edc6a25c828fb48"
+      },
+      "reviewSha256": "46b44cb349b8ee8c6d60ab217616c537a925034838761a6132ddd99db2c51522"
+    },
+    {
+      "id": "02-incident",
+      "label": "Incident recovery",
+      "development": 43,
+      "generated": 34,
+      "regression": 3,
+      "reportSQL": 9,
+      "firstHeldOutPassed": 3,
+      "firstHeldOutTotal": 3,
+      "files": {
+        "schema.sql": "22a26520f3d18afd8706e3f3dbf61ff5914eac9f5a031ca98d747a198c921d7a",
+        "implementation.ts": "b114cdabc76fcc4e6a728240441dad1d6a083a7ff06094fadbed43fc88fd3e23",
+        "acceptance.test.ts": "629909efc6b2983b3cb76509db75c0f40ed28e370144a9c16ecf2f5ec1531926",
+        "runbook.md": "1c4c5d8a9684f983cc4b0db3781826037c0be558c0062cd9f397ea73c5b2ebe6"
+      },
+      "reviewSha256": "53c114592a44dd4e1fec4b85c0d9798d02d0fd8ca47e4617f51ec34fff6acc5a"
+    },
+    {
+      "id": "03-architecture",
+      "label": "Migration design",
+      "development": 25,
+      "generated": 63,
+      "regression": 3,
+      "reportSQL": 0,
+      "firstHeldOutPassed": 2,
+      "firstHeldOutTotal": 3,
+      "files": {
+        "schema.sql": "dacb3fe18568c1b2f4fe9ecebd3530ebae8d8beb996b838a3fb582d952b196a6",
+        "implementation.ts": "e1ee8c87748428f70ba1164dcdb780df2a042436cb5c8db5e31dfa9bbd71754f",
+        "acceptance.test.ts": "ab838244bc7e7645aec15dd93e584cf0ee6cac9ae02022e8c6166f7e33ba9e1e",
+        "runbook.md": "a70c9b7e019d0d0c3bd7b7059afd584bb19fcd214e7a2ce23263e10e564ed3e1"
+      },
+      "reviewSha256": "7d666d12bcfcb90719b76d4c18c883bb747c6cc38d252ca260ba5d711834450d"
+    },
+    {
+      "id": "04-long-audit",
+      "label": "Pipeline audit",
+      "development": 14,
+      "generated": 28,
+      "regression": 3,
+      "reportSQL": 0,
+      "firstHeldOutPassed": 3,
+      "firstHeldOutTotal": 3,
+      "files": {
+        "schema.sql": "28b8d33beb66602e4df60763dfbc6dd7cf5cfb8adfdc3a884759ef77c091216a",
+        "implementation.ts": "7119af3187d22b73100e6e8611b1a83e441d35ab7544d56b731940fec300a808",
+        "acceptance.test.ts": "66fb85a455d98aa214bbb395d239b56e1e5a2d07b6dcbdd610d6591ff31caead",
+        "runbook.md": "72ffedf77197d0e5660eabdbf3cf0d8e7541e72c7f375a7ce66ed83e84d32b01"
+      },
+      "reviewSha256": "5a141ba2c51b299b76301e9820114dc7fc154a3b90c8dea782eb518435187030"
+    }
+  ],
+  "verifiedUTC": "2026-11-06T07:16:09.622Z",
+  "firstHeldOut": {
+    "passed": 11,
+    "total": 12,
+    "subsequent": "12/12 after repair is regression evidence"
+  },
+  "sandbox": {
+    "postgresql": "17.11",
+    "node": "22.23.4",
+    "typescript": "5.9.3",
+    "pg": "8.23.1",
+    "dependencies": "Real PostgreSQL; synthetic provider and broker dependencies. No real payments or broker operations."
+  },
+  "attention": {
+    "shortProbes": [
+      {
+        "id": "01-code-review",
+        "promptTokens": 50936,
+        "promptSha256": "35fdf71029d028124821226093a280accf747d81be5ecd48dbce59b75c6cbfc8",
+        "baselineEosPercent": 24.49861145695653,
+        "attentionBf16EosPercent": 24.502236018481288,
+        "percentagePointReduction": -0.003624561524755876,
+        "baselineTopToken": "\n\n",
+        "attentionTopToken": "\n\n"
+      },
+      {
+        "id": "02-incident",
+        "promptTokens": 39075,
+        "promptSha256": "55b81cc50f99d65ccf5d1c4bb758c44d3509f6e3796d7183c4e5c8e4a1e6c950",
+        "baselineEosPercent": 55.99591506101708,
+        "attentionBf16EosPercent": 13.263737789777624,
+        "percentagePointReduction": 42.73217727123946,
+        "baselineTopToken": "<|im_end|>",
+        "attentionTopToken": "oping"
+      }
+    ],
+    "shortRuntime": "Identical tokens/runtime: no MTP, eager, BF16 KV, FP32 state, 65,536 capacity, one sequence; only checkpoint changed.",
+    "restoredTensors": 64,
+    "unchangedTensors": 1830,
+    "storageAddedBytes": 2490366976,
+    "totalTensorBytes": 18281888656,
+    "referenceRevision": "8c0b3d30f3ae96f5c7f774de704bf0ada83e422a",
+    "fullRuntime": {
+      "contextLimit": 150000,
+      "outputAllowance": 30000,
+      "temperature": 1,
+      "seed": 42,
+      "reasoning": "low",
+      "mtpTokens": 3,
+      "kv": "FP8",
+      "state": "FP16",
+      "gpuMemoryUtilization": 0.96,
+      "maxSequences": 1,
+      "eager": true,
+      "batchTokens": 512,
+      "kvCacheBytes": 5800000000,
+      "ignoreEos": false
+    },
+    "fullGenerations": [
+      {
+        "id": "01-code-review",
+        "inputTokens": 119993,
+        "outputTokens": 16398,
+        "finishReason": "stop",
+        "prefillSeconds": 79.25538016599603,
+        "decodeTokensPerSecond": 88.46105780585546,
+        "wallSeconds": 264.78643800000003,
+        "cachedTokens": 0,
+        "preemptions": 0
+      },
+      {
+        "id": "02-incident",
+        "inputTokens": 119953,
+        "outputTokens": 12299,
+        "finishReason": "stop",
+        "prefillSeconds": 75.0704673010041,
+        "decodeTokensPerSecond": 82.96468998982411,
+        "wallSeconds": 223.4749315,
+        "cachedTokens": 0,
+        "preemptions": 0
+      },
+      {
+        "id": "03-architecture",
+        "inputTokens": 119923,
+        "outputTokens": 14623,
+        "finishReason": "stop",
+        "prefillSeconds": 75.03477871298674,
+        "decodeTokensPerSecond": 82.65469475324598,
+        "wallSeconds": 252.104796959,
+        "cachedTokens": 0,
+        "preemptions": 0
+      },
+      {
+        "id": "04-long-audit",
+        "inputTokens": 119993,
+        "outputTokens": 12302,
+        "finishReason": "stop",
+        "prefillSeconds": 75.08671642400441,
+        "decodeTokensPerSecond": 86.20054188386511,
+        "wallSeconds": 217.958321458,
+        "cachedTokens": 0,
+        "preemptions": 0
+      }
+    ]
+  },
+  "fresh45": {
+    "cases": [
+      {
+        "id": "01-code-review",
+        "calls": 7,
+        "outputTokens": 103432,
+        "wallSeconds": 793.2775889569999,
+        "schemaApplies": true,
+        "implementationCompiles": true,
+        "completePackage": false,
+        "independentSemanticAcceptance": false
+      },
+      {
+        "id": "02-incident",
+        "calls": 7,
+        "outputTokens": 104125,
+        "wallSeconds": 849.5160652480001,
+        "schemaApplies": true,
+        "implementationCompiles": true,
+        "completePackage": false,
+        "independentSemanticAcceptance": false
+      },
+      {
+        "id": "03-architecture",
+        "calls": 10,
+        "outputTokens": 128690,
+        "wallSeconds": 1037.708251628,
+        "schemaApplies": true,
+        "implementationCompiles": true,
+        "completePackage": false,
+        "independentSemanticAcceptance": false
+      },
+      {
+        "id": "04-long-audit",
+        "calls": 7,
+        "outputTokens": 80242,
+        "wallSeconds": 653.0677621260006,
+        "schemaApplies": true,
+        "implementationCompiles": true,
+        "completePackage": false,
+        "independentSemanticAcceptance": false
+      }
+    ],
+    "limits": [
+      "Frozen two-repair-per-artifact bound, no retry extension.",
+      "Per-stage artifact restriction cannot repair implementation/schema during test generation.",
+      "Independent tests were not model feedback.",
+      "No runbook generated because all cases failed prerequisites.",
+      "Seed43/44 strict-envelope failures and adaptive seed42 passes remain separate."
+    ]
+  },
+  "costs": {
+    "checkpointUTC": "2026-11-06T08:58:38.411Z",
+    "calls": 246,
+    "outputTokens": 3021468,
+    "wallSeconds": 29172.981917219,
+    "scope": "Unique measured generations, including rejected outputs. Excludes startup, CPU checks, teacher-forced probes, GSM transport, supervision and zero-token failures without final metrics. Not total elapsed investigation time or monetary cost.",
+    "groups": {
+      "base-mtp-low-seed42": {
+        "calls": 4,
+        "outputTokens": 49676,
+        "wallSeconds": 709.551,
+        "stop": 4,
+        "length": 0
+      },
+      "bf16-attention-full-kv540-mtp-low-seed42": {
+        "calls": 4,
+        "outputTokens": 55622,
+        "wallSeconds": 958.324,
+        "stop": 4,
+        "length": 0
+      },
+      "exact-edit-greedy-matched": {
+        "calls": 1,
+        "outputTokens": 3932,
+        "wallSeconds": 40.234,
+        "stop": 1,
+        "length": 0
+      },
+      "exact-edit-greedy-no-mtp-valid": {
+        "calls": 1,
+        "outputTokens": 9083,
+        "wallSeconds": 177.716,
+        "stop": 1,
+        "length": 0
+      },
+      "fast-fp32-state-low-seed42": {
+        "calls": 4,
+        "outputTokens": 49250,
+        "wallSeconds": 670.988,
+        "stop": 4,
+        "length": 0
+      },
+      "fast-int8-kv-low-seed42": {
+        "calls": 2,
+        "outputTokens": 21618,
+        "wallSeconds": 1749.377,
+        "stop": 2,
+        "length": 0
+      },
+      "fast-mtp-low-seed42": {
+        "calls": 4,
+        "outputTokens": 67466,
+        "wallSeconds": 844.348,
+        "stop": 4,
+        "length": 0
+      },
+      "json-copy-control": {
+        "calls": 4,
+        "outputTokens": 1634,
+        "wallSeconds": 10.857,
+        "stop": 4,
+        "length": 0
+      },
+      "migration-raw-budget-pair-12288": {
+        "calls": 2,
+        "outputTokens": 47772,
+        "wallSeconds": 440.589,
+        "stop": 1,
+        "length": 1
+      },
+      "raw-budget-matched-12288": {
+        "calls": 1,
+        "outputTokens": 20008,
+        "wallSeconds": 158.09,
+        "stop": 1,
+        "length": 0
+      },
+      "raw-span-encoding-control": {
+        "calls": 1,
+        "outputTokens": 2686,
+        "wallSeconds": 40.944,
+        "stop": 1,
+        "length": 0
+      },
+      "reasoning-eos-guard-matched": {
+        "calls": 2,
+        "outputTokens": 31056,
+        "wallSeconds": 235.454,
+        "stop": 2,
+        "length": 0
+      },
+      "structured-budget-matched-8192": {
+        "calls": 1,
+        "outputTokens": 17112,
+        "wallSeconds": 152.308,
+        "stop": 1,
+        "length": 0
+      },
+      "workflow-boundary-validation-low-seed42": {
+        "calls": 2,
+        "outputTokens": 12934,
+        "wallSeconds": 151.847,
+        "stop": 2,
+        "length": 0
+      },
+      "workflow-calendar-followon-low-seed42": {
+        "calls": 1,
+        "outputTokens": 11626,
+        "wallSeconds": 104.672,
+        "stop": 1,
+        "length": 0
+      },
+      "workflow-final-docs-low-seed42": {
+        "calls": 6,
+        "outputTokens": 100055,
+        "wallSeconds": 858.744,
+        "stop": 6,
+        "length": 0
+      },
+      "workflow-fresh-low-seed43": {
+        "calls": 11,
+        "outputTokens": 84296,
+        "wallSeconds": 878.14,
+        "stop": 11,
+        "length": 0
+      },
+      "workflow-fresh-low-seed44": {
+        "calls": 11,
+        "outputTokens": 92908,
+        "wallSeconds": 951.298,
+        "stop": 11,
+        "length": 0
+      },
+      "workflow-guarded-component-repairs-low-seed42": {
+        "calls": 35,
+        "outputTokens": 402529,
+        "wallSeconds": 3503.919,
+        "stop": 34,
+        "length": 1
+      },
+      "workflow-handoff-validation-low-seed42": {
+        "calls": 4,
+        "outputTokens": 18348,
+        "wallSeconds": 195.674,
+        "stop": 4,
+        "length": 0
+      },
+      "workflow-reasoning-guard-low-seed42": {
+        "calls": 32,
+        "outputTokens": 526745,
+        "wallSeconds": 4353.075,
+        "stop": 30,
+        "length": 2
+      },
+      "workflow-retrieved-compact-low-seed42": {
+        "calls": 28,
+        "outputTokens": 278887,
+        "wallSeconds": 2500.136,
+        "stop": 28,
+        "length": 0
+      },
+      "workflow-source-low-seed42": {
+        "calls": 5,
+        "outputTokens": 56720,
+        "wallSeconds": 773.38,
+        "stop": 5,
+        "length": 0
+      },
+      "workflow-state-review-low-seed42": {
+        "calls": 7,
+        "outputTokens": 88960,
+        "wallSeconds": 802.092,
+        "stop": 6,
+        "length": 1
+      },
+      "workflow-stateless-patches-low-seed42": {
+        "calls": 15,
+        "outputTokens": 169119,
+        "wallSeconds": 1366.986,
+        "stop": 15,
+        "length": 0
+      },
+      "workflow-structured-edits-low-seed42": {
+        "calls": 22,
+        "outputTokens": 320025,
+        "wallSeconds": 2608.611,
+        "stop": 22,
+        "length": 0
+      },
+      "workflow-temporal-precision-low-seed42": {
+        "calls": 1,
+        "outputTokens": 6089,
+        "wallSeconds": 68.712,
+        "stop": 1,
+        "length": 0
+      },
+      "workflow-test-completion-low-seed42": {
+        "calls": 4,
+        "outputTokens": 58823,
+        "wallSeconds": 533.345,
+        "stop": 4,
+        "length": 0
+      },
+      "workflow-validated-low-seed45": {
+        "calls": 31,
+        "outputTokens": 416489,
+        "wallSeconds": 3333.57,
+        "stop": 31,
+        "length": 0
+      }
+    },
+    "measurements": [
+      {
+        "id": "q-001",
+        "group": "base-mtp-low-seed42",
+        "startedUTC": "2026-11-05T21:34:03.048Z",
+        "outputTokens": 11637,
+        "wallSeconds": 166.903690875,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-002",
+        "group": "base-mtp-low-seed42",
+        "startedUTC": "2026-11-05T21:36:51.130Z",
+        "outputTokens": 12111,
+        "wallSeconds": 169.510561875,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-003",
+        "group": "base-mtp-low-seed42",
+        "startedUTC": "2026-11-05T21:39:41.904Z",
+        "outputTokens": 13695,
+        "wallSeconds": 187.00146620800004,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-004",
+        "group": "base-mtp-low-seed42",
+        "startedUTC": "2026-11-05T21:42:50.145Z",
+        "outputTokens": 12233,
+        "wallSeconds": 186.13493179199995,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-005",
+        "group": "bf16-attention-full-kv540-mtp-low-seed42",
+        "startedUTC": "2026-11-06T08:38:36.804Z",
+        "outputTokens": 16398,
+        "wallSeconds": 264.78643800000003,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-006",
+        "group": "bf16-attention-full-kv540-mtp-low-seed42",
+        "startedUTC": "2026-11-06T08:43:03.002Z",
+        "outputTokens": 12299,
+        "wallSeconds": 223.4749315,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-007",
+        "group": "bf16-attention-full-kv540-mtp-low-seed42",
+        "startedUTC": "2026-11-06T08:46:47.793Z",
+        "outputTokens": 14623,
+        "wallSeconds": 252.104796959,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-008",
+        "group": "bf16-attention-full-kv540-mtp-low-seed42",
+        "startedUTC": "2026-11-06T08:51:01.160Z",
+        "outputTokens": 12302,
+        "wallSeconds": 217.958321458,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-009",
+        "group": "exact-edit-greedy-matched",
+        "startedUTC": "2026-11-06T03:40:23.703Z",
+        "outputTokens": 3932,
+        "wallSeconds": 40.233812,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-010",
+        "group": "exact-edit-greedy-no-mtp-valid",
+        "startedUTC": "2026-11-06T03:54:38.234Z",
+        "outputTokens": 9083,
+        "wallSeconds": 177.715928583,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-011",
+        "group": "fast-fp32-state-low-seed42",
+        "startedUTC": "2026-11-05T21:51:18.375Z",
+        "outputTokens": 14370,
+        "wallSeconds": 180.157492292,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-012",
+        "group": "fast-fp32-state-low-seed42",
+        "startedUTC": "2026-11-05T21:54:19.676Z",
+        "outputTokens": 15888,
+        "wallSeconds": 200.14090141699998,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-013",
+        "group": "fast-fp32-state-low-seed42",
+        "startedUTC": "2026-11-05T21:57:41.054Z",
+        "outputTokens": 7553,
+        "wallSeconds": 130.32586016700003,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-014",
+        "group": "fast-fp32-state-low-seed42",
+        "startedUTC": "2026-11-05T21:59:52.570Z",
+        "outputTokens": 11439,
+        "wallSeconds": 160.36386466699994,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-015",
+        "group": "fast-int8-kv-low-seed42",
+        "startedUTC": "2026-11-05T22:22:34.996Z",
+        "outputTokens": 11915,
+        "wallSeconds": 948.85611925,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-016",
+        "group": "fast-int8-kv-low-seed42",
+        "startedUTC": "2026-11-05T22:38:25.245Z",
+        "outputTokens": 9703,
+        "wallSeconds": 800.521285667,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-017",
+        "group": "fast-mtp-low-seed42",
+        "startedUTC": "2026-11-05T21:14:07.232Z",
+        "outputTokens": 16530,
+        "wallSeconds": 199.527455916,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-018",
+        "group": "fast-mtp-low-seed42",
+        "startedUTC": "2026-11-05T21:17:28.051Z",
+        "outputTokens": 13012,
+        "wallSeconds": 172.726819375,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-019",
+        "group": "fast-mtp-low-seed42",
+        "startedUTC": "2026-11-05T21:20:22.218Z",
+        "outputTokens": 25250,
+        "wallSeconds": 303.164540084,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-020",
+        "group": "fast-mtp-low-seed42",
+        "startedUTC": "2026-11-05T21:25:26.659Z",
+        "outputTokens": 12674,
+        "wallSeconds": 168.928964959,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-021",
+        "group": "json-copy-control",
+        "startedUTC": "2026-11-06T03:58:20.907Z",
+        "outputTokens": 459,
+        "wallSeconds": 2.9537399579999994,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-022",
+        "group": "json-copy-control",
+        "startedUTC": "2026-11-06T03:58:17.479Z",
+        "outputTokens": 452,
+        "wallSeconds": 3.346974042,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-023",
+        "group": "json-copy-control",
+        "startedUTC": "2026-11-06T03:58:26.268Z",
+        "outputTokens": 362,
+        "wallSeconds": 2.2726166250000004,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-024",
+        "group": "json-copy-control",
+        "startedUTC": "2026-11-06T03:58:23.931Z",
+        "outputTokens": 361,
+        "wallSeconds": 2.2835666659999996,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-025",
+        "group": "migration-raw-budget-pair-12288",
+        "startedUTC": "2026-11-06T05:58:00.122Z",
+        "outputTokens": 17772,
+        "wallSeconds": 170.4773515,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-026",
+        "group": "migration-raw-budget-pair-12288",
+        "startedUTC": "2026-11-06T05:53:28.943Z",
+        "outputTokens": 30000,
+        "wallSeconds": 270.111994292,
+        "finishReason": "length"
+      },
+      {
+        "id": "q-027",
+        "group": "raw-budget-matched-12288",
+        "startedUTC": "2026-11-06T04:43:14.588Z",
+        "outputTokens": 20008,
+        "wallSeconds": 158.09025200000002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-028",
+        "group": "raw-span-encoding-control",
+        "startedUTC": "2026-11-06T04:03:35.936Z",
+        "outputTokens": 2686,
+        "wallSeconds": 40.944207625000004,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-029",
+        "group": "reasoning-eos-guard-matched",
+        "startedUTC": "2026-11-06T01:56:42.235Z",
+        "outputTokens": 10453,
+        "wallSeconds": 82.354526667,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-030",
+        "group": "reasoning-eos-guard-matched",
+        "startedUTC": "2026-11-06T01:58:04.724Z",
+        "outputTokens": 20603,
+        "wallSeconds": 153.099853917,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-031",
+        "group": "structured-budget-matched-8192",
+        "startedUTC": "2026-11-06T03:10:06.679Z",
+        "outputTokens": 17112,
+        "wallSeconds": 152.30769787499997,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-032",
+        "group": "workflow-boundary-validation-low-seed42",
+        "startedUTC": "2026-11-06T06:27:58.293Z",
+        "outputTokens": 2059,
+        "wallSeconds": 38.408185583,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-033",
+        "group": "workflow-boundary-validation-low-seed42",
+        "startedUTC": "2026-11-06T06:29:07.931Z",
+        "outputTokens": 10875,
+        "wallSeconds": 113.43925295800001,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-034",
+        "group": "workflow-calendar-followon-low-seed42",
+        "startedUTC": "2026-11-06T06:03:29.499Z",
+        "outputTokens": 11626,
+        "wallSeconds": 104.671883625,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-035",
+        "group": "workflow-final-docs-low-seed42",
+        "startedUTC": "2026-11-06T05:39:57.692Z",
+        "outputTokens": 10265,
+        "wallSeconds": 92.0658495,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-036",
+        "group": "workflow-final-docs-low-seed42",
+        "startedUTC": "2026-11-06T05:50:48.947Z",
+        "outputTokens": 18208,
+        "wallSeconds": 146.587219,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-037",
+        "group": "workflow-final-docs-low-seed42",
+        "startedUTC": "2026-11-06T06:34:36.425Z",
+        "outputTokens": 17568,
+        "wallSeconds": 187.752723833,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-038",
+        "group": "workflow-final-docs-low-seed42",
+        "startedUTC": "2026-11-06T06:39:39.758Z",
+        "outputTokens": 19155,
+        "wallSeconds": 154.187088125,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-039",
+        "group": "workflow-final-docs-low-seed42",
+        "startedUTC": "2026-11-06T05:22:26.580Z",
+        "outputTokens": 23716,
+        "wallSeconds": 179.83234012500003,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-040",
+        "group": "workflow-final-docs-low-seed42",
+        "startedUTC": "2026-11-06T05:41:30.932Z",
+        "outputTokens": 11143,
+        "wallSeconds": 98.318905875,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-041",
+        "group": "workflow-fresh-low-seed43",
+        "startedUTC": "2026-11-06T06:53:31.422Z",
+        "outputTokens": 985,
+        "wallSeconds": 74.72227116600001,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-042",
+        "group": "workflow-fresh-low-seed43",
+        "startedUTC": "2026-11-06T06:54:47.063Z",
+        "outputTokens": 6311,
+        "wallSeconds": 50.142127417,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-043",
+        "group": "workflow-fresh-low-seed43",
+        "startedUTC": "2026-11-06T06:55:38.021Z",
+        "outputTokens": 24095,
+        "wallSeconds": 167.848852291,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-044",
+        "group": "workflow-fresh-low-seed43",
+        "startedUTC": "2026-11-06T06:58:29.328Z",
+        "outputTokens": 1437,
+        "wallSeconds": 77.72873987499997,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-045",
+        "group": "workflow-fresh-low-seed43",
+        "startedUTC": "2026-11-06T06:59:47.961Z",
+        "outputTokens": 6434,
+        "wallSeconds": 49.801988584000036,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-046",
+        "group": "workflow-fresh-low-seed43",
+        "startedUTC": "2026-11-06T07:00:38.575Z",
+        "outputTokens": 14019,
+        "wallSeconds": 94.35072391699994,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-047",
+        "group": "workflow-fresh-low-seed43",
+        "startedUTC": "2026-11-06T07:02:16.509Z",
+        "outputTokens": 1516,
+        "wallSeconds": 79.11161554200004,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-048",
+        "group": "workflow-fresh-low-seed43",
+        "startedUTC": "2026-11-06T07:03:36.517Z",
+        "outputTokens": 10830,
+        "wallSeconds": 82.75781029099994,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-049",
+        "group": "workflow-fresh-low-seed43",
+        "startedUTC": "2026-11-06T07:05:02.902Z",
+        "outputTokens": 1910,
+        "wallSeconds": 82.35944233300002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-050",
+        "group": "workflow-fresh-low-seed43",
+        "startedUTC": "2026-11-06T07:06:26.143Z",
+        "outputTokens": 5560,
+        "wallSeconds": 40.75912754200003,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-051",
+        "group": "workflow-fresh-low-seed43",
+        "startedUTC": "2026-11-06T07:07:07.721Z",
+        "outputTokens": 11199,
+        "wallSeconds": 78.55743195900007,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-052",
+        "group": "workflow-fresh-low-seed44",
+        "startedUTC": "2026-11-06T07:10:50.308Z",
+        "outputTokens": 1563,
+        "wallSeconds": 79.250943667,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-053",
+        "group": "workflow-fresh-low-seed44",
+        "startedUTC": "2026-11-06T07:12:10.541Z",
+        "outputTokens": 6281,
+        "wallSeconds": 47.91426458399999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-054",
+        "group": "workflow-fresh-low-seed44",
+        "startedUTC": "2026-11-06T07:13:01.777Z",
+        "outputTokens": 1463,
+        "wallSeconds": 78.51854641700001,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-055",
+        "group": "workflow-fresh-low-seed44",
+        "startedUTC": "2026-11-06T07:14:21.085Z",
+        "outputTokens": 9879,
+        "wallSeconds": 75.705863709,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-056",
+        "group": "workflow-fresh-low-seed44",
+        "startedUTC": "2026-11-06T07:15:37.727Z",
+        "outputTokens": 13386,
+        "wallSeconds": 92.794754917,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-057",
+        "group": "workflow-fresh-low-seed44",
+        "startedUTC": "2026-11-06T07:17:14.229Z",
+        "outputTokens": 1064,
+        "wallSeconds": 74.86169487499998,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-058",
+        "group": "workflow-fresh-low-seed44",
+        "startedUTC": "2026-11-06T07:18:29.980Z",
+        "outputTokens": 15802,
+        "wallSeconds": 121.18245345800003,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-059",
+        "group": "workflow-fresh-low-seed44",
+        "startedUTC": "2026-11-06T07:20:32.265Z",
+        "outputTokens": 19275,
+        "wallSeconds": 135.08516995899996,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-060",
+        "group": "workflow-fresh-low-seed44",
+        "startedUTC": "2026-11-06T07:22:51.122Z",
+        "outputTokens": 1755,
+        "wallSeconds": 81.21524970799999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-061",
+        "group": "workflow-fresh-low-seed44",
+        "startedUTC": "2026-11-06T07:24:13.401Z",
+        "outputTokens": 7680,
+        "wallSeconds": 59.54932070899999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-062",
+        "group": "workflow-fresh-low-seed44",
+        "startedUTC": "2026-11-06T07:25:13.863Z",
+        "outputTokens": 14760,
+        "wallSeconds": 105.22006533299992,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-063",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T03:31:47.957Z",
+        "outputTokens": 2209,
+        "wallSeconds": 34.776464292,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-064",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:26:20.984Z",
+        "outputTokens": 17658,
+        "wallSeconds": 157.743811542,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-065",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:38:25.580Z",
+        "outputTokens": 18867,
+        "wallSeconds": 147.60325366700002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-066",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:48:05.391Z",
+        "outputTokens": 3616,
+        "wallSeconds": 44.072803791000005,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-067",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T03:32:23.788Z",
+        "outputTokens": 11201,
+        "wallSeconds": 97.258147916,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-068",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T03:34:02.012Z",
+        "outputTokens": 15400,
+        "wallSeconds": 123.623298083,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-069",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T03:36:06.654Z",
+        "outputTokens": 10664,
+        "wallSeconds": 104.745885125,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-070",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T03:59:25.227Z",
+        "outputTokens": 1351,
+        "wallSeconds": 32.576189958,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-071",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:08:42.372Z",
+        "outputTokens": 4851,
+        "wallSeconds": 51.031720625,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-072",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:10:55.799Z",
+        "outputTokens": 4537,
+        "wallSeconds": 37.283397083000004,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-073",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:16:56.436Z",
+        "outputTokens": 10955,
+        "wallSeconds": 89.72132004199999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-074",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:12:03.267Z",
+        "outputTokens": 17542,
+        "wallSeconds": 156.01418891699998,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-075",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T05:12:13.202Z",
+        "outputTokens": 1945,
+        "wallSeconds": 17.218644,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-076",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T05:13:51.043Z",
+        "outputTokens": 25592,
+        "wallSeconds": 223.34156145799997,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-077",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T05:25:27.708Z",
+        "outputTokens": 20092,
+        "wallSeconds": 185.486645666,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-078",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:21:42.770Z",
+        "outputTokens": 25992,
+        "wallSeconds": 207.80149720800003,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-079",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:33:11.583Z",
+        "outputTokens": 7804,
+        "wallSeconds": 79.41699575,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-080",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:40:54.595Z",
+        "outputTokens": 7099,
+        "wallSeconds": 71.67859475,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-081",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:57:37.568Z",
+        "outputTokens": 23144,
+        "wallSeconds": 186.301265625,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-082",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T05:01:25.286Z",
+        "outputTokens": 948,
+        "wallSeconds": 32.936475290999994,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-083",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T05:03:05.778Z",
+        "outputTokens": 12759,
+        "wallSeconds": 107.579578208,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-084",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T05:05:46.754Z",
+        "outputTokens": 26896,
+        "wallSeconds": 211.75155508300003,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-085",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T05:10:05.969Z",
+        "outputTokens": 10577,
+        "wallSeconds": 78.937968875,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-086",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:00:23.933Z",
+        "outputTokens": 2350,
+        "wallSeconds": 33.490722708,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-087",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:50:46.583Z",
+        "outputTokens": 7033,
+        "wallSeconds": 62.556768333,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-088",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:52:23.427Z",
+        "outputTokens": 12145,
+        "wallSeconds": 89.402345583,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-089",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:54:52.163Z",
+        "outputTokens": 22019,
+        "wallSeconds": 164.13457804200002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-090",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:02:13.619Z",
+        "outputTokens": 914,
+        "wallSeconds": 24.41636925,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-091",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:06:57.294Z",
+        "outputTokens": 3337,
+        "wallSeconds": 39.608720709,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-092",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:18:44.482Z",
+        "outputTokens": 15049,
+        "wallSeconds": 122.00988137499999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-093",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:29:07.011Z",
+        "outputTokens": 3648,
+        "wallSeconds": 42.77968075,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-094",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:34:32.204Z",
+        "outputTokens": 30000,
+        "wallSeconds": 232.205084375,
+        "finishReason": "length"
+      },
+      {
+        "id": "q-095",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:42:07.387Z",
+        "outputTokens": 5417,
+        "wallSeconds": 49.90598800000001,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-096",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:46:02.109Z",
+        "outputTokens": 14669,
+        "wallSeconds": 122.05293008299999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-097",
+        "group": "workflow-guarded-component-repairs-low-seed42",
+        "startedUTC": "2026-11-06T04:48:50.541Z",
+        "outputTokens": 4249,
+        "wallSeconds": 42.45435575,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-098",
+        "group": "workflow-handoff-validation-low-seed42",
+        "startedUTC": "2026-11-06T06:11:37.905Z",
+        "outputTokens": 4037,
+        "wallSeconds": 48.109295958000004,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-099",
+        "group": "workflow-handoff-validation-low-seed42",
+        "startedUTC": "2026-11-06T06:49:19.090Z",
+        "outputTokens": 5283,
+        "wallSeconds": 49.576795624999995,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-100",
+        "group": "workflow-handoff-validation-low-seed42",
+        "startedUTC": "2026-11-06T06:10:36.166Z",
+        "outputTokens": 6124,
+        "wallSeconds": 60.632336083,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-101",
+        "group": "workflow-handoff-validation-low-seed42",
+        "startedUTC": "2026-11-06T06:24:25.387Z",
+        "outputTokens": 2904,
+        "wallSeconds": 37.3560545,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-102",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:11:41.235Z",
+        "outputTokens": 16110,
+        "wallSeconds": 126.044608834,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-103",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T03:17:28.192Z",
+        "outputTokens": 23530,
+        "wallSeconds": 200.73329750000002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-104",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T03:20:50.139Z",
+        "outputTokens": 25328,
+        "wallSeconds": 201.074582542,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-105",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T03:24:12.695Z",
+        "outputTokens": 5716,
+        "wallSeconds": 51.214636332999994,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-106",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:19:01.272Z",
+        "outputTokens": 28981,
+        "wallSeconds": 214.696350917,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-107",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:27:09.145Z",
+        "outputTokens": 8572,
+        "wallSeconds": 76.45125304199999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-108",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:28:26.664Z",
+        "outputTokens": 9625,
+        "wallSeconds": 80.231946084,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-109",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:34:44.774Z",
+        "outputTokens": 24119,
+        "wallSeconds": 196.93874558299999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-110",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:38:02.934Z",
+        "outputTokens": 21474,
+        "wallSeconds": 157.815622125,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-111",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:42:37.899Z",
+        "outputTokens": 3196,
+        "wallSeconds": 44.468636584,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-112",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:56:03.811Z",
+        "outputTokens": 15328,
+        "wallSeconds": 128.624040333,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-113",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T03:06:43.790Z",
+        "outputTokens": 11051,
+        "wallSeconds": 91.651042583,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-114",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:13:48.409Z",
+        "outputTokens": 16953,
+        "wallSeconds": 137.074844625,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-115",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T03:14:20.087Z",
+        "outputTokens": 481,
+        "wallSeconds": 27.639376958,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-116",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T03:14:48.687Z",
+        "outputTokens": 17742,
+        "wallSeconds": 158.060372833,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-117",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:25:13.665Z",
+        "outputTokens": 13429,
+        "wallSeconds": 114.41679937499998,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-118",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:31:20.419Z",
+        "outputTokens": 24656,
+        "wallSeconds": 203.22649708400002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-119",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:40:41.846Z",
+        "outputTokens": 13214,
+        "wallSeconds": 115.08676925,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-120",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:51:49.323Z",
+        "outputTokens": 30000,
+        "wallSeconds": 253.313658667,
+        "finishReason": "length"
+      },
+      {
+        "id": "q-121",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:58:13.423Z",
+        "outputTokens": 16603,
+        "wallSeconds": 142.787260833,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-122",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T03:00:37.409Z",
+        "outputTokens": 16002,
+        "wallSeconds": 138.04285104200002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-123",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T03:02:56.695Z",
+        "outputTokens": 24813,
+        "wallSeconds": 226.0365435,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-124",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T03:08:16.620Z",
+        "outputTokens": 1653,
+        "wallSeconds": 31.153962292,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-125",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:08:32.619Z",
+        "outputTokens": 25684,
+        "wallSeconds": 187.43997433299998,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-126",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:22:37.096Z",
+        "outputTokens": 20564,
+        "wallSeconds": 155.166429541,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-127",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:29:48.030Z",
+        "outputTokens": 10815,
+        "wallSeconds": 91.21158770900001,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-128",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:43:23.575Z",
+        "outputTokens": 14308,
+        "wallSeconds": 116.729612708,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-129",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:45:21.402Z",
+        "outputTokens": 30000,
+        "wallSeconds": 231.00045666699998,
+        "finishReason": "length"
+      },
+      {
+        "id": "q-130",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T02:49:13.517Z",
+        "outputTokens": 20875,
+        "wallSeconds": 154.62487191699998,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-131",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T03:25:05.017Z",
+        "outputTokens": 15940,
+        "wallSeconds": 131.051309208,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-132",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T03:27:17.525Z",
+        "outputTokens": 14207,
+        "wallSeconds": 122.53732074999999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-133",
+        "group": "workflow-reasoning-guard-low-seed42",
+        "startedUTC": "2026-11-06T03:29:21.417Z",
+        "outputTokens": 5776,
+        "wallSeconds": 46.529317666999994,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-134",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:50:53.271Z",
+        "outputTokens": 8944,
+        "wallSeconds": 78.823750917,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-135",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:48:10.209Z",
+        "outputTokens": 12165,
+        "wallSeconds": 107.54026641700001,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-136",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:55:38.654Z",
+        "outputTokens": 7169,
+        "wallSeconds": 76.029483875,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-137",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:42:49.090Z",
+        "outputTokens": 5064,
+        "wallSeconds": 60.863557625,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-138",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:57:42.583Z",
+        "outputTokens": 13683,
+        "wallSeconds": 103.78693799999999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-139",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:52:22.061Z",
+        "outputTokens": 17097,
+        "wallSeconds": 138.76973249999998,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-140",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-06T00:00:15.052Z",
+        "outputTokens": 6487,
+        "wallSeconds": 67.346303625,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-141",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:45:55.559Z",
+        "outputTokens": 10411,
+        "wallSeconds": 102.30185254199999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-142",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T22:58:33.763Z",
+        "outputTokens": 1913,
+        "wallSeconds": 82.47396820899999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-143",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T22:59:56.763Z",
+        "outputTokens": 11771,
+        "wallSeconds": 93.600780333,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-144",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:01:31.272Z",
+        "outputTokens": 13652,
+        "wallSeconds": 99.08973075000002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-145",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:03:10.999Z",
+        "outputTokens": 13455,
+        "wallSeconds": 101.19735258300003,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-146",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:04:53.145Z",
+        "outputTokens": 6764,
+        "wallSeconds": 59.11344816700002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-147",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:05:56.243Z",
+        "outputTokens": 1455,
+        "wallSeconds": 78.33339270800003,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-148",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:07:15.694Z",
+        "outputTokens": 7314,
+        "wallSeconds": 57.5246712499999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-149",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:08:14.162Z",
+        "outputTokens": 16366,
+        "wallSeconds": 112.91635662500002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-150",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:10:08.033Z",
+        "outputTokens": 16886,
+        "wallSeconds": 121.62590454200003,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-151",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:12:10.811Z",
+        "outputTokens": 6011,
+        "wallSeconds": 48.72327324999997,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-152",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:13:03.861Z",
+        "outputTokens": 1058,
+        "wallSeconds": 74.88325474999996,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-153",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:14:19.742Z",
+        "outputTokens": 10566,
+        "wallSeconds": 81.15624670799997,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-154",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:15:42.062Z",
+        "outputTokens": 17885,
+        "wallSeconds": 130.3421369579999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-155",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:17:53.640Z",
+        "outputTokens": 17156,
+        "wallSeconds": 126.80596787499985,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-156",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:20:01.647Z",
+        "outputTokens": 10742,
+        "wallSeconds": 95.90830404199986,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-157",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:21:41.808Z",
+        "outputTokens": 1294,
+        "wallSeconds": 77.22194716700004,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-158",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:23:00.037Z",
+        "outputTokens": 6943,
+        "wallSeconds": 54.731052665999854,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-159",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:23:55.810Z",
+        "outputTokens": 14528,
+        "wallSeconds": 100.05199175000004,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-160",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:25:37.117Z",
+        "outputTokens": 15671,
+        "wallSeconds": 110.34786229199986,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-161",
+        "group": "workflow-retrieved-compact-low-seed42",
+        "startedUTC": "2026-11-05T23:27:28.628Z",
+        "outputTokens": 6437,
+        "wallSeconds": 58.626811083999925,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-162",
+        "group": "workflow-source-low-seed42",
+        "startedUTC": "2026-11-05T22:06:03.019Z",
+        "outputTokens": 8405,
+        "wallSeconds": 144.55123491700002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-163",
+        "group": "workflow-source-low-seed42",
+        "startedUTC": "2026-11-05T22:08:32.013Z",
+        "outputTokens": 14907,
+        "wallSeconds": 135.08698962500003,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-164",
+        "group": "workflow-source-low-seed42",
+        "startedUTC": "2026-11-05T22:10:51.686Z",
+        "outputTokens": 13784,
+        "wallSeconds": 177.388326834,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-165",
+        "group": "workflow-source-low-seed42",
+        "startedUTC": "2026-11-05T22:13:54.170Z",
+        "outputTokens": 7127,
+        "wallSeconds": 133.58940445799996,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-166",
+        "group": "workflow-source-low-seed42",
+        "startedUTC": "2026-11-05T22:16:12.202Z",
+        "outputTokens": 12497,
+        "wallSeconds": 182.76409325000003,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-167",
+        "group": "workflow-state-review-low-seed42",
+        "startedUTC": "2026-11-06T05:19:00.786Z",
+        "outputTokens": 7752,
+        "wallSeconds": 67.207260959,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-168",
+        "group": "workflow-state-review-low-seed42",
+        "startedUTC": "2026-11-06T05:37:45.837Z",
+        "outputTokens": 8678,
+        "wallSeconds": 85.192581708,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-169",
+        "group": "workflow-state-review-low-seed42",
+        "startedUTC": "2026-11-06T05:31:10.043Z",
+        "outputTokens": 9969,
+        "wallSeconds": 92.35004824999999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-170",
+        "group": "workflow-state-review-low-seed42",
+        "startedUTC": "2026-11-06T05:36:15.216Z",
+        "outputTokens": 9420,
+        "wallSeconds": 89.49408270900001,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-171",
+        "group": "workflow-state-review-low-seed42",
+        "startedUTC": "2026-11-06T05:43:10.459Z",
+        "outputTokens": 16740,
+        "wallSeconds": 160.540734625,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-172",
+        "group": "workflow-state-review-low-seed42",
+        "startedUTC": "2026-11-06T05:46:43.356Z",
+        "outputTokens": 30000,
+        "wallSeconds": 244.37346720899998,
+        "finishReason": "length"
+      },
+      {
+        "id": "q-173",
+        "group": "workflow-state-review-low-seed42",
+        "startedUTC": "2026-11-06T05:20:09.195Z",
+        "outputTokens": 6401,
+        "wallSeconds": 62.933528834,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-174",
+        "group": "workflow-stateless-patches-low-seed42",
+        "startedUTC": "2026-11-06T00:26:38.375Z",
+        "outputTokens": 9149,
+        "wallSeconds": 86.34650204200001,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-175",
+        "group": "workflow-stateless-patches-low-seed42",
+        "startedUTC": "2026-11-06T00:30:57.630Z",
+        "outputTokens": 621,
+        "wallSeconds": 28.209673,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-176",
+        "group": "workflow-stateless-patches-low-seed42",
+        "startedUTC": "2026-11-06T00:32:14.187Z",
+        "outputTokens": 16521,
+        "wallSeconds": 131.71685466699998,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-177",
+        "group": "workflow-stateless-patches-low-seed42",
+        "startedUTC": "2026-11-06T00:03:51.605Z",
+        "outputTokens": 14472,
+        "wallSeconds": 107.322410292,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-178",
+        "group": "workflow-stateless-patches-low-seed42",
+        "startedUTC": "2026-11-06T00:08:11.409Z",
+        "outputTokens": 2567,
+        "wallSeconds": 29.891831125,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-179",
+        "group": "workflow-stateless-patches-low-seed42",
+        "startedUTC": "2026-11-06T00:09:42.154Z",
+        "outputTokens": 10722,
+        "wallSeconds": 89.992206459,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-180",
+        "group": "workflow-stateless-patches-low-seed42",
+        "startedUTC": "2026-11-06T00:13:47.312Z",
+        "outputTokens": 14961,
+        "wallSeconds": 107.85030079200001,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-181",
+        "group": "workflow-stateless-patches-low-seed42",
+        "startedUTC": "2026-11-06T00:15:49.698Z",
+        "outputTokens": 23858,
+        "wallSeconds": 171.677962584,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-182",
+        "group": "workflow-stateless-patches-low-seed42",
+        "startedUTC": "2026-11-06T00:19:08.836Z",
+        "outputTokens": 3913,
+        "wallSeconds": 29.179016708000002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-183",
+        "group": "workflow-stateless-patches-low-seed42",
+        "startedUTC": "2026-11-06T00:20:05.867Z",
+        "outputTokens": 14235,
+        "wallSeconds": 101.84264916599999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-184",
+        "group": "workflow-stateless-patches-low-seed42",
+        "startedUTC": "2026-11-06T00:22:40.246Z",
+        "outputTokens": 9430,
+        "wallSeconds": 77.11217695799999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-185",
+        "group": "workflow-stateless-patches-low-seed42",
+        "startedUTC": "2026-11-06T00:24:47.968Z",
+        "outputTokens": 12282,
+        "wallSeconds": 100.043129625,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-186",
+        "group": "workflow-stateless-patches-low-seed42",
+        "startedUTC": "2026-11-06T00:28:58.354Z",
+        "outputTokens": 11857,
+        "wallSeconds": 98.211160917,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-187",
+        "group": "workflow-stateless-patches-low-seed42",
+        "startedUTC": "2026-11-06T00:35:19.217Z",
+        "outputTokens": 6686,
+        "wallSeconds": 66.892331,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-188",
+        "group": "workflow-stateless-patches-low-seed42",
+        "startedUTC": "2026-11-06T00:36:47.118Z",
+        "outputTokens": 17845,
+        "wallSeconds": 140.697880333,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-189",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T00:48:50.528Z",
+        "outputTokens": 13573,
+        "wallSeconds": 105.202951833,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-190",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T00:56:54.200Z",
+        "outputTokens": 2310,
+        "wallSeconds": 28.404560250000003,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-191",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T00:59:34.026Z",
+        "outputTokens": 4690,
+        "wallSeconds": 45.367280917,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-192",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T00:51:39.575Z",
+        "outputTokens": 17768,
+        "wallSeconds": 144.322346458,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-193",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T00:57:49.584Z",
+        "outputTokens": 12298,
+        "wallSeconds": 93.99056137499998,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-194",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:03:12.989Z",
+        "outputTokens": 10554,
+        "wallSeconds": 94.12539433399999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-195",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:09:47.519Z",
+        "outputTokens": 6776,
+        "wallSeconds": 60.989683542,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-196",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:16:44.499Z",
+        "outputTokens": 18524,
+        "wallSeconds": 151.022314625,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-197",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:24:01.889Z",
+        "outputTokens": 12426,
+        "wallSeconds": 93.997095084,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-198",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:35:38.556Z",
+        "outputTokens": 16848,
+        "wallSeconds": 129.625221875,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-199",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:42:43.085Z",
+        "outputTokens": 10962,
+        "wallSeconds": 85.523579542,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-200",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:47:44.913Z",
+        "outputTokens": 13984,
+        "wallSeconds": 112.06703966699999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-201",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:11:18.941Z",
+        "outputTokens": 15797,
+        "wallSeconds": 149.99147108300002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-202",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:25:51.831Z",
+        "outputTokens": 20315,
+        "wallSeconds": 161.949816292,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-203",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:38:15.321Z",
+        "outputTokens": 15804,
+        "wallSeconds": 130.851075875,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-204",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:44:28.608Z",
+        "outputTokens": 16953,
+        "wallSeconds": 137.845283875,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-205",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T02:01:34.034Z",
+        "outputTokens": 15040,
+        "wallSeconds": 126.908838334,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-206",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:00:38.592Z",
+        "outputTokens": 17452,
+        "wallSeconds": 146.173284625,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-207",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:05:42.254Z",
+        "outputTokens": 27153,
+        "wallSeconds": 218.77366275,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-208",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:14:41.546Z",
+        "outputTokens": 13775,
+        "wallSeconds": 115.847094916,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-209",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:32:01.160Z",
+        "outputTokens": 24191,
+        "wallSeconds": 180.12954033300002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-210",
+        "group": "workflow-structured-edits-low-seed42",
+        "startedUTC": "2026-11-06T01:40:41.822Z",
+        "outputTokens": 12832,
+        "wallSeconds": 95.502703625,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-211",
+        "group": "workflow-temporal-precision-low-seed42",
+        "startedUTC": "2026-11-06T06:31:40.166Z",
+        "outputTokens": 6089,
+        "wallSeconds": 68.711902833,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-212",
+        "group": "workflow-test-completion-low-seed42",
+        "startedUTC": "2026-11-06T06:07:57.956Z",
+        "outputTokens": 16211,
+        "wallSeconds": 157.021891542,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-213",
+        "group": "workflow-test-completion-low-seed42",
+        "startedUTC": "2026-11-06T06:13:45.350Z",
+        "outputTokens": 12383,
+        "wallSeconds": 128.300984666,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-214",
+        "group": "workflow-test-completion-low-seed42",
+        "startedUTC": "2026-11-06T06:18:59.543Z",
+        "outputTokens": 7128,
+        "wallSeconds": 68.96692224999998,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-215",
+        "group": "workflow-test-completion-low-seed42",
+        "startedUTC": "2026-11-06T06:21:13.052Z",
+        "outputTokens": 23101,
+        "wallSeconds": 179.05494791700002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-216",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:28:24.945Z",
+        "outputTokens": 690,
+        "wallSeconds": 72.290702958,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-217",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:29:38.104Z",
+        "outputTokens": 9529,
+        "wallSeconds": 74.02174016599999,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-218",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:30:53.672Z",
+        "outputTokens": 23028,
+        "wallSeconds": 160.72219462500001,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-219",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:33:36.294Z",
+        "outputTokens": 10666,
+        "wallSeconds": 69.02877370800002,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-220",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:34:46.991Z",
+        "outputTokens": 24080,
+        "wallSeconds": 170.46106320799998,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-221",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:37:38.481Z",
+        "outputTokens": 17874,
+        "wallSeconds": 128.57615408400005,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-222",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:39:48.147Z",
+        "outputTokens": 17565,
+        "wallSeconds": 118.17696020799991,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-223",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:41:51.435Z",
+        "outputTokens": 8180,
+        "wallSeconds": 137.37882058399998,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-224",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:44:09.773Z",
+        "outputTokens": 10356,
+        "wallSeconds": 80.31696641600004,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-225",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:45:31.380Z",
+        "outputTokens": 10469,
+        "wallSeconds": 78.34536829100001,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-226",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:46:51.227Z",
+        "outputTokens": 19551,
+        "wallSeconds": 138.470138666,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-227",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:49:11.641Z",
+        "outputTokens": 22088,
+        "wallSeconds": 163.74362662500005,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-228",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:51:56.781Z",
+        "outputTokens": 15329,
+        "wallSeconds": 120.86180262500001,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-229",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:53:58.626Z",
+        "outputTokens": 18152,
+        "wallSeconds": 130.399342041,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-230",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:56:13.878Z",
+        "outputTokens": 1446,
+        "wallSeconds": 77.937652,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-231",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:57:32.748Z",
+        "outputTokens": 11433,
+        "wallSeconds": 88.12375433299994,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-232",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T07:59:02.323Z",
+        "outputTokens": 13210,
+        "wallSeconds": 100.24576079199998,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-233",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T08:00:43.963Z",
+        "outputTokens": 8686,
+        "wallSeconds": 60.55845733399992,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-234",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T08:01:46.105Z",
+        "outputTokens": 14176,
+        "wallSeconds": 103.82410887500015,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-235",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T08:03:30.939Z",
+        "outputTokens": 13487,
+        "wallSeconds": 99.16421516699995,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-236",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T08:05:12.064Z",
+        "outputTokens": 14289,
+        "wallSeconds": 103.91397416700003,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-237",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T08:06:57.981Z",
+        "outputTokens": 15442,
+        "wallSeconds": 119.24606058399985,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-238",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T08:08:58.325Z",
+        "outputTokens": 18605,
+        "wallSeconds": 146.22732120899997,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-239",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T08:11:25.657Z",
+        "outputTokens": 17916,
+        "wallSeconds": 138.46694716700026,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-240",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T08:13:48.426Z",
+        "outputTokens": 1360,
+        "wallSeconds": 78.07117595800013,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-241",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T08:15:07.500Z",
+        "outputTokens": 5641,
+        "wallSeconds": 42.87512991699995,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-242",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T08:15:51.665Z",
+        "outputTokens": 4516,
+        "wallSeconds": 31.12744325000001,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-243",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T08:16:24.196Z",
+        "outputTokens": 19934,
+        "wallSeconds": 142.43979045900005,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-244",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T08:18:48.518Z",
+        "outputTokens": 20246,
+        "wallSeconds": 151.78340891700006,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-245",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T08:21:21.339Z",
+        "outputTokens": 16368,
+        "wallSeconds": 123.40191037499997,
+        "finishReason": "stop"
+      },
+      {
+        "id": "q-246",
+        "group": "workflow-validated-low-seed45",
+        "startedUTC": "2026-11-06T08:23:27.122Z",
+        "outputTokens": 12177,
+        "wallSeconds": 83.36890325000044,
+        "finishReason": "stop"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "reviewed-package-manifest",
+      "sha256": "659c3e00d697f2310cce229907e1c6872fc7b43e9366f67d703359863260b495",
+      "availability": "Contributor-retained source; hash is a fingerprint, not a public raw download."
+    },
+    {
+      "id": "reviewed-package-verification",
+      "sha256": "ad8dc4384b8ece079f993ece8e106ef869ceb9078e1f2d18b0685186692fbfbf",
+      "availability": "Contributor-retained source; hash is a fingerprint, not a public raw download."
+    },
+    {
+      "id": "generation-cost-ledger",
+      "sha256": "7bf47a311eede62e5855625999cb159d963ebe124613ed4697d2c0bc338f5522",
+      "availability": "Contributor-retained source; hash is a fingerprint, not a public raw download."
+    },
+    {
+      "id": "attention-preparation",
+      "sha256": "d063fdb22a5fb5fe5a1962977645d3aa6877b631eea79282b8fcc7e06d21c2d9",
+      "availability": "Contributor-retained source; hash is a fingerprint, not a public raw download."
+    },
+    {
+      "id": "attention-short-probes",
+      "sha256": "546d595aac429c10a31220458e87767d4aa1996d1f57b2970df9d18e7139e054",
+      "availability": "Contributor-retained source; hash is a fingerprint, not a public raw download."
+    },
+    {
+      "id": "attention-full-probes",
+      "sha256": "e8f993f067a7a455c26273d29e24cec02aa9cf949a7d65d3019b0a9026ff7d61",
+      "availability": "Contributor-retained source; hash is a fingerprint, not a public raw download."
+    },
+    {
+      "id": "attention-full-generation",
+      "sha256": "3c1a019e4af5240b51b8154e08927bc1e831c40bcbb883ef259841f6a4d073e6",
+      "availability": "Contributor-retained source; hash is a fingerprint, not a public raw download."
+    },
+    {
+      "id": "fresh-seed45-review",
+      "sha256": "122b6be5cd0b28bcdbeabac12bd478656f09cdc2a60f4f19d3fdd3a3f5290206",
+      "availability": "Contributor-retained source; hash is a fingerprint, not a public raw download."
+    },
+    {
+      "id": "upstream-gsm-result",
+      "sha256": "dccf41c94197eb6235b6f929a6e891cac389e7a668c860575a0b77caee906864",
+      "availability": "Contributor-retained source; hash is a fingerprint, not a public raw download."
+    },
+    {
+      "id": "upstream-gsm-protocol",
+      "sha256": "93e91f62878cb3a48443188475a803d274805872bd7bb51b90d135c8b934c305",
+      "availability": "Contributor-retained source; hash is a fingerprint, not a public raw download."
+    },
+    {
+      "id": "reasoning-guard-pair",
+      "sha256": "810ea500dc6f946d58455ea8d181c30106f655ce4843804efc4c6d24ee3c9f72",
+      "availability": "Contributor-retained source; hash is a fingerprint, not a public raw download."
+    }
+  ],
+  "limits": [
+    "Four synthetic engineering scenarios, not a statistical task success rate.",
+    "Supervised artifacts are not fresh unattended generations.",
+    "No manually corrected candidate implementation credited to the model.",
+    "First held-out score retained; adapted cases count only as regression.",
+    "Independent counterexamples do not prove universal correctness.",
+    "Raw prompts, candidate code, private transcripts and complete experiment harness are not included. The installation kit is a separate synthetic smoke test.",
+    "Original fast 150k profile restored on 2026-11-06 at 08:58 UTC; no experimental profile promoted."
+  ]
+}
